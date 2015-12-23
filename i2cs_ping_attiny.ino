@@ -81,7 +81,7 @@ void set_thres(uint8_t y) {
     x[i] = TinyWireS.receive(); // receive byte as a character
     i++;
   }
-  if (i > 2) {
+  if (i > 1) {
     thres[0] = x[0];    
     thres[1] = x[1];    
     EEPROM.update(EEPROM_THRES_ADDR + 0,thres[0]);
