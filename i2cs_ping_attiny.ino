@@ -7,8 +7,10 @@
 #include <TinyNewPing.h>            // NewPing library modified for ATtiny
 #include <EEPROM.h>
 
-#define LED_R_PIN 4
-#define LED_G_PIN 1
+#define LED_R_PIN 1
+#define LED_G_PIN 4
+#define TRIG_PIN 3
+#define ECHO_PIN 3
 
 #define EEPROM_THRES_ADDR 0
 
