@@ -64,18 +64,18 @@ void loop()
 
   unsigned long t = millis();
   if (thres[0] > 0 && thres[1] > 0) {
-    if (distance >= thres[0] && distance < thres[1]) {
-      digitalWrite(LED_R_PIN, HIGH);
+    if (distance >= thres[0] && distance < thres[1]) { // normal
+      digitalWrite(LED_R_PIN, LOW);
       digitalWrite(LED_G_PIN, HIGH);
-    } else if (distance >= thres[0] && distance >= thres[1]) {
-      if (t - ptime > 1000) {
+    } else if (distance >= thres[0] && distance >= thres[1]) { // low
+      if (t - ptime > 500 || t < ptime) {
         ledstatus = 1 - ledstatus;
         digitalWrite(LED_R_PIN, ledstatus);
         digitalWrite(LED_G_PIN, LOW);
         ptime = t;
       }
-    } else {
-      digitalWrite(LED_R_PIN, LOW);
+    } else { // full
+      digitalWrite(LED_R_PIN, HIGH);
       digitalWrite(LED_G_PIN, HIGH);
     }
   }
